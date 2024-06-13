@@ -23,16 +23,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     @Autowired
-    AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
     @Autowired
-    JwtService jwtService;
+    private JwtService jwtService;
     @Autowired
     private InternalUserDetailService internalUserDetailService;
 
     @PostMapping("/login")
     public JwtResponseDTO getAccessToken(@RequestBody AuthRequestDTO authRequestDTO){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequestDTO.getUsername(), authRequestDTO.getPassword()));
-        if(authentication.isAuthenticated()){
+        if(authentication != null && authentication.isAuthenticated()){
             JwtResponseDTO dto = new JwtResponseDTO();
             dto.setAccessToken(jwtService.generateToken(authRequestDTO.getUsername()));
             dto.setRefreshToken(jwtService.generateRefreshToken(authRequestDTO.getUsername()));

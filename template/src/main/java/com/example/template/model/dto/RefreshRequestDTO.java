@@ -1,4 +1,4 @@
-package com.example.template.model;
+package com.example.template.model.dto;
 
 public class RefreshRequestDTO {
 

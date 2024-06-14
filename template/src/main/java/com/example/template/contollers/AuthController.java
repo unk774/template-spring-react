@@ -1,8 +1,8 @@
 package com.example.template.contollers;
 
-import com.example.template.model.AuthRequestDTO;
-import com.example.template.model.JwtResponseDTO;
-import com.example.template.model.RefreshRequestDTO;
+import com.example.template.model.dto.AuthRequestDTO;
+import com.example.template.model.dto.JwtResponseDTO;
+import com.example.template.model.dto.RefreshRequestDTO;
 import com.example.template.services.InternalUserDetailService;
 import com.example.template.services.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;

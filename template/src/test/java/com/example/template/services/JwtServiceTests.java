@@ -13,6 +13,7 @@ import java.util.Collection;
 
 @SpringBootTest
 @TestPropertySource(properties = {"jws.tokenExpire = 60000", "jws.refreshTokenExpire = 60000"})
+@TestPropertySource(properties = {"spring.jpa.properties.hibernate.javax.cache.uri = classpath://hibernateCache.xml"})
 public class JwtServiceTests {
 
     @Autowired

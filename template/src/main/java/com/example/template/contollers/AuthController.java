@@ -46,6 +46,9 @@ public class AuthController {
     @PostMapping("/refresh")
     public JwtResponseDTO refreshAccessToken(@RequestBody RefreshRequestDTO refreshRequestDTO) {
         String token = refreshRequestDTO.getRefreshToken();
+        if (token == null || token.isEmpty()) {
+            throw new UsernameNotFoundException("invalid user request!");
+        }
         String username = jwtService.extractUsername(token);
         if (username != null
                 && jwtService.refreshTokenActive(token, username)

@@ -40,6 +40,9 @@ api.interceptors.response.use(
 
             try {
                 const refreshToken = getRefreshToken();
+                if (refreshToken === undefined || refreshToken === "") {
+                    return
+                }
                 const response = await axios.post('api/auth/refresh', { refreshToken });
                 const { accessToken } = response.data;
                 setAccessToken(accessToken)

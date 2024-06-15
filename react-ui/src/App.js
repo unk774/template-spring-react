@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import {logout} from "./modules/api";
+import {logout, setAccessToken, setRefreshToken} from "./modules/api";
 
 
 function App() {

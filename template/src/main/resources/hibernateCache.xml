@@ -1,0 +1,11 @@
+<ehcache:config
+        xmlns:ehcache="http://www.ehcache.org/v3"
+        xmlns:jcache="http://www.ehcache.org/v3/jsr107">
+    <ehcache:cache alias="com.example.template.model.entities.DBAuthority">
+        <ehcache:heap>200</ehcache:heap>
+    </ehcache:cache>
+    <ehcache:cache alias="com.example.template.model.entities.DBUser.dbAuthorities">
+        <ehcache:heap>200</ehcache:heap>
+    </ehcache:cache>
+
+</ehcache:config>

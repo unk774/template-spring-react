@@ -14,6 +14,8 @@ import java.util.stream.StreamSupport;
 
 @SpringBootTest
 public class RoleModelTests {
+    /*@Autowired
+    CacheManager cacheManager;*/
 
     @Autowired
     DBUserRepository DBUserRepository;

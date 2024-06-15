@@ -11,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.Set;
 
@@ -35,6 +37,7 @@ public class DBUser {
             name = "db_user_x_db_authority",
             joinColumns = @JoinColumn(name = "db_user_id"),
             inverseJoinColumns = @JoinColumn(name = "db_authority_id"))
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<DBAuthority> dbAuthorities;
 
     public DBUser(String username, String password, Set<DBAuthority> appAuthorities) {

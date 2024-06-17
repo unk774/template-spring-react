@@ -40,10 +40,6 @@ public class DBAuthority {
             inverseJoinColumns = @JoinColumn(name = "db_user_id"))
     private Set<DBUser> DBUsers;
 
-    public DBAuthority(String name) {
-        this.name = name;
-    }
-
     public DBAuthority() {
 
     }

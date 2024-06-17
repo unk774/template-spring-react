@@ -77,13 +77,4 @@ public class AuthController {
             throw new UsernameNotFoundException("Unauthorized");
         }
     }
-
-    @GetMapping("/ping")
-    public String test() {
-        try {
-            return "Welcome";
-        } catch (Exception e){
-            throw new RuntimeException(e);
-        }
-    }
 }

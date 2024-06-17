@@ -40,12 +40,6 @@ public class DBUser {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<DBAuthority> dbAuthorities;
 
-    public DBUser(String username, String password, Set<DBAuthority> appAuthorities) {
-        this.username = username;
-        this.password = password;
-        this.dbAuthorities = appAuthorities;
-    }
-
     public DBUser() {
 
     }

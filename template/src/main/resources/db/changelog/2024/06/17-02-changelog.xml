@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.28.xsd">
+    <changeSet id="20240617-01" author="nwmfmm">
+        <insert tableName="db_user">
+            <column name="id">1</column>
+            <column name="username">admin</column>
+            <column name="password">{noop}!test!</column>
+        </insert>
+        <insert tableName="db_user">
+            <column name="id">2</column>
+            <column name="username">user</column>
+            <column name="password">{noop}!user!</column>
+        </insert>
+        <insert tableName="db_authority">
+            <column name="id">1</column>
+            <column name="name">admin</column>
+        </insert>
+        <insert tableName="db_authority">
+            <column name="id">2</column>
+            <column name="name">user</column>
+        </insert>
+        <insert tableName="db_user_x_db_authority">
+            <column name="db_user_id">1</column>
+            <column name="db_authority_id">1</column>
+        </insert>
+        <insert tableName="db_user_x_db_authority">
+            <column name="db_user_id">1</column>
+            <column name="db_authority_id">2</column>
+        </insert>
+        <insert tableName="db_user_x_db_authority">
+            <column name="db_user_id">2</column>
+            <column name="db_authority_id">1</column>
+        </insert>
+        <rollback>
+            <delete tableName="db_user">
+                <where>username in ('admin', 'user')</where>
+            </delete>
+        </rollback>
+        <rollback>
+            <delete tableName="db_authority">
+                <where>name in ('admin', 'user')</where>
+            </delete>
+        </rollback>
+        <rollback>
+            <delete tableName="db_user_x_db_authority">
+                <where>db_user_id in (1, 2)</where>
+            </delete>
+            <delete tableName="db_user_x_db_authority">
+                <where>db_authority_id in (1, 2)</where>
+            </delete>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
